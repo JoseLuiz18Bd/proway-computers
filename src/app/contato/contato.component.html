@@ -1,0 +1,109 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+  <form class="contact-form" [formGroup]="contatoForm" (ngSubmit)="enviarContato()">
+    <input
+      type="text"
+      placeholder="Digite o seu nome"
+      formControlName="nome"
+      [class.valid]="contatoForm.controls['nome'].valid"
+      [class.invalid]="contatoForm.controls['nome'].invalid &&
+      (contatoForm.controls['nome'].touched || contatoForm.controls['nome'].dirty)"
+    />
+    <div
+      *ngIf="contatoForm.controls['nome'].invalid &&
+      (contatoForm.controls['nome'].touched || contatoForm.controls['nome'].dirty)"
+    >
+      <small class="error-message" *ngIf="contatoForm.controls['nome'].hasError('minlength')">
+        O campo deve ter no mínimo3 6 caracteres
+      </small>
+      <small class="error-message" *ngIf="contatoForm.controls['nome'].hasError('required')">
+        O campo é obrigatório
+      </small>
+    </div>
+
+    <input
+      type="tel"
+      placeholder="(00) 0 0000-0000"
+      mask="(00) 0 0000-0000"
+      formControlName="telefone"
+      [class.valid]="contatoForm.controls['telefone'].valid"
+      [class.invalid]="contatoForm.controls['telefone'].invalid &&
+      (contatoForm.controls['telefone'].touched || contatoForm.controls['telefone'].dirty)"
+    />
+    <div
+      *ngIf="contatoForm.controls['telefone'].invalid &&
+      (contatoForm.controls['telefone'].touched || contatoForm.controls['telefone'].dirty)"
+    >
+      <small class="error-message" *ngIf="contatoForm.controls['telefone'].hasError('minlength')">
+        O nome deve ter no mínimo 6 caracteres
+      </small>
+      <small class="error-message" *ngIf="contatoForm.controls['telefone'].hasError('required')">
+        O campo é obrigatório
+      </small>
+    </div>
+
+    <input
+      type="email"
+      placeholder="E-mail"
+      formControlName="email"
+      [class.valid]="contatoForm.controls['email'].valid"
+      [class.invalid]="contatoForm.controls['email'].invalid &&
+      (contatoForm.controls['email'].touched || contatoForm.controls['email'].dirty)"
+    />
+    <div
+      *ngIf="contatoForm.controls['email'].invalid &&
+      (contatoForm.controls['email'].touched || contatoForm.controls['email'].dirty)"
+    >
+      <small class="error-message" *ngIf="contatoForm.controls['email'].hasError('minlength')">
+        O campo deve ter no mínimo 6 caracteres
+      </small>
+      <small class="error-message" *ngIf="contatoForm.controls['email'].hasError('required')">
+        O campo é obrigatório
+      </small>
+    </div>
+    <input
+      type="assunto"
+      placeholder="Assunto"
+      formControlName="assunto"
+      [class.valid]="contatoForm.controls['assunto'].valid"
+      [class.invalid]="contatoForm.controls['assunto'].invalid &&
+      (contatoForm.controls['assunto'].touched || contatoForm.controls['assunto'].dirty)"
+    />
+    <div
+      *ngIf="contatoForm.controls['assunto'].invalid &&
+      (contatoForm.controls['assunto'].touched || contatoForm.controls['assunto'].dirty)"
+    >
+      <small class="error-message" *ngIf="contatoForm.controls['assunto'].hasError('minlength')">
+        O campo deve ter no mínimo 10 caracteres
+      </small>
+      <small class="error-message" *ngIf="contatoForm.controls['assunto'].hasError('required')">
+        O campo é obrigatório
+      </small>
+    </div>
+    <textarea
+      maxlength="500"
+      rows="5"
+      placeholder="Mensagem..."
+      formControlName="mensagem"
+      [class.valid]="contatoForm.controls['mensagem'].valid"
+      [class.invalid]="contatoForm.controls['mensagem'].invalid &&
+      (contatoForm.controls['mensagem'].touched || contatoForm.controls['mensagem'].dirty)">
+    </textarea>
+    <div
+      *ngIf="contatoForm.controls['mensagem'].invalid &&
+      (contatoForm.controls['mensagem'].touched || contatoForm.controls['mensagem'].dirty)"
+    >
+      <small class="error-message" *ngIf="contatoForm.controls['mensagem'].hasError('minlength')">
+        O campo deve ter no mínimo 20 caracteres
+      </small>
+      <small class="error-message" *ngIf="contatoForm.controls['mensagem'].hasError('required')">
+        O campo é obrigatório
+      </small>
+    </div>
+    <button [disabled]="contatoForm.invalid" type="submit">Enviar</button>
+  </form>
+  <address>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.575090257842!2d-49.0703074!3d-26.916977199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c3b4a71d65%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1740614725007!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>Rua 7 de Setembro, 1600 - 14° andar - Centro, Blumenau - SC, 89010-204</p>
+  </address>
+</section>
